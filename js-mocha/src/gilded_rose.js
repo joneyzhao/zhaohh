@@ -7,9 +7,6 @@ class Item {
 }
 
 class Shop {
-  // constructor(items=[]){
-  //   this.items = items;
-  // }
   constructor(items) {
     this.items = items;
   }
@@ -36,8 +33,6 @@ class Shop {
     }
   }
   updateSulfuras(item) {
-    console.log('this.item==' + item);
-    console.log('this.item.name==' + item.name);
     item.quality;
     item.sellIn;
   }
