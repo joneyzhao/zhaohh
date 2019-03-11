@@ -16,35 +16,14 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name == 'Aged Brie') {
-        console.log('this.items[i]==' + this.items[i].name);
         this.updateAgedBrie(this.items[i]);
       } else if (this.items[i].name == 'Sulfuras') {
         this.updateSulfuras(this.items[i]);
       } else if (this.items[i].name == 'Backstage passes') {
-        if (this.items[i].sellIn > 10) {
-          this.items[i].quality++; 
-          this.items[i].sellIn--;
-        } else if (this.items[i].sellIn > 5 && this.items[i].sellIn <= 10) {
-          this.items[i].quality += 2;
-          this.items[i].sellIn--;
-        } else if (this.items[i].sellIn > 0 && this.items[i].sellIn <= 5) {
-          this.items[i].quality += 3;
-          this.items[i].sellIn--;
-        } else {
-          this.items[i].quality = 0;
-        }
-      } else if (this.items[i].sellIn >= 0) {
-        if (this.items[i].quality >= 1) {
-          this.items[i].quality--;
-          this.items[i].sellIn--;
-        } else {
-          this.items[i].quality = 0;
-          this.items[i].sellIn--;
-        }
-      } else if (this.items[i].sellIn < 0 && this.items[i].quality >= 2) {
-        this.items[i].quality -= 2;
-        this.items[i].sellIn--;
-      } 
+        this.updateBackstagePasses(this.items[i]);
+      } else {
+        this.updateNormal(this.items[i]);
+      }
     }
   }
   updateAgedBrie(item) {
@@ -61,6 +40,34 @@ class Shop {
     console.log('this.item.name==' + item.name);
     item.quality;
     item.sellIn;
+  }
+  updateBackstagePasses(item) {
+    if (item.sellIn > 10) {
+      item.quality++;
+      item.sellIn--;
+    } else if (item.sellIn > 5 && item.sellIn <= 10) {
+      item.quality += 2;
+      item.sellIn--;
+    } else if (item.sellIn > 0 && item.sellIn <= 5) {
+      item.quality += 3;
+      item.sellIn--;
+    } else {
+      item.quality = 0;
+    }
+  }
+  updateNormal(item) {
+    if (item.sellIn >= 0) {
+      if (item.quality >= 1) {
+        item.quality--;
+        item.sellIn--;
+      } else {
+        item.quality = 0;
+        item.sellIn--;
+      }
+    } else if (item.sellIn < 0 && item.quality >= 2) {
+      item.quality -= 2;
+      item.sellIn--;
+    } 
   }
 }
 
