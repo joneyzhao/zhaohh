@@ -26,11 +26,10 @@ class Shop {
   updateAgedBrie(item) {
     if (item.quality < 50) {
       item.quality++;
-      item.sellIn--;
     } else {
       item.quality = 50;
-      item.sellIn--;
     }
+    item.sellIn--;
   }
   updateSulfuras(item) {
     item.quality;
@@ -39,30 +38,26 @@ class Shop {
   updateBackstagePasses(item) {
     if (item.sellIn > 10) {
       item.quality++;
-      item.sellIn--;
     } else if (item.sellIn > 5 && item.sellIn <= 10) {
       item.quality += 2;
-      item.sellIn--;
     } else if (item.sellIn > 0 && item.sellIn <= 5) {
       item.quality += 3;
-      item.sellIn--;
     } else {
       item.quality = 0;
     }
+    item.sellIn--;
   }
   updateNormal(item) {
     if (item.sellIn >= 0) {
       if (item.quality >= 1) {
         item.quality--;
-        item.sellIn--;
       } else {
         item.quality = 0;
-        item.sellIn--;
       }
     } else if (item.sellIn < 0 && item.quality >= 2) {
       item.quality -= 2;
-      item.sellIn--;
     } 
+    item.sellIn--;
   }
 }
 

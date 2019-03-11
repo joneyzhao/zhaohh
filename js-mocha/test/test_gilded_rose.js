@@ -60,7 +60,7 @@ describe("Gilded Rose", function() {
     expect(shop.items[2].sellIn).to.equal(3);
     expect(shop.items[2].quality).to.equal(23);
 
-    expect(shop.items[3].sellIn).to.equal(0);
+    expect(shop.items[3].sellIn).to.equal(-1);
     expect(shop.items[3].quality).to.equal(0);
   });
 
