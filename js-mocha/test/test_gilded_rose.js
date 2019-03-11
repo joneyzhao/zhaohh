@@ -4,7 +4,7 @@ var {Shop, Item} = require('../src/gilded_rose.js');
 describe("Gilded Rose", function() {
 
   it("shows normal test", function() {
-    const items = [new Item('normal', 10, 20), new Item('normal', 0, 0), new Item('normal', -1, 2), new Item('normal', 1, 1)]
+    const items = [new Item('normal', 10, 20), new Item('normal', 0, 0), new Item('normal', -1, 2), new Item('normal', 1, 1), new Item('normal', -1, 0)]
     const shop = new Shop(items)
 
     shop.updateQuality()
@@ -20,6 +20,9 @@ describe("Gilded Rose", function() {
 
     expect(shop.items[3].sellIn).to.equal(0);
     expect(shop.items[3].quality).to.equal(0);
+
+    expect(shop.items[4].sellIn).to.equal(-2);
+    expect(shop.items[4].quality).to.equal(0);
   });
 
   it("shows Aged Brie test", function () {
