@@ -16,16 +16,10 @@ class Shop {
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name == 'Aged Brie') {
-        if (this.items[i].quality < 50) {
-          this.items[i].quality++;
-          this.items[i].sellIn--;
-        } else {
-          this.items[i].quality = 50;
-          this.items[i].sellIn--;
-        }
+        console.log('this.items[i]==' + this.items[i].name);
+        this.updateAgedBrie(this.items[i]);
       } else if (this.items[i].name == 'Sulfuras') {
-        this.items[i].quality;
-        this.items[i].sellIn;
+        this.updateSulfuras(this.items[i]);
       } else if (this.items[i].name == 'Backstage passes') {
         if (this.items[i].sellIn > 10) {
           this.items[i].quality++; 
@@ -52,6 +46,21 @@ class Shop {
         this.items[i].sellIn--;
       } 
     }
+  }
+  updateAgedBrie(item) {
+    if (item.quality < 50) {
+      item.quality++;
+      item.sellIn--;
+    } else {
+      item.quality = 50;
+      item.sellIn--;
+    }
+  }
+  updateSulfuras(item) {
+    console.log('this.item==' + item);
+    console.log('this.item.name==' + item.name);
+    item.quality;
+    item.sellIn;
   }
 }
 
