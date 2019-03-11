@@ -21,22 +21,32 @@ class Shop {
       } else if (this.items[i].name == 'Sulfuras') {
         this.items[i].quality;
         this.items[i].sellIn;
+      } else if (this.items[i].name == 'Backstage passes') {
+        if (this.items[i].sellIn > 10) {
+          this.items[i].quality++; 
+          this.items[i].sellIn--;
+        } else if (this.items[i].sellIn > 5 && this.items[i].sellIn <= 10) {
+          this.items[i].quality += 2;
+          this.items[i].sellIn--;
+        } else if (this.items[i].sellIn > 0 && this.items[i].sellIn <= 5) {
+          console.log('this.items[i].quality==' + this.items[i].quality);
+          this.items[i].quality += 3;
+          this.items[i].sellIn--;
+        } else {
+          this.items[i].quality = 0;
+        }
       } else if (this.items[i].sellIn >= 0) {
-        if (0 <= this.items[i].quality <= 50) {
+        if (this.items[i].quality >= 1) {
           this.items[i].quality--;
           this.items[i].sellIn--
         } else {
           this.items[i].quality = 0;
         }
       } else if (this.items[i].sellIn < 0 && this.items[i].quality >= 2) {
-        this.items[i].quality-=2;
+        this.items[i].quality -= 2;
       } 
     }
-  
 
-    
-    // this.items[0].sellIn = 9;
-    // this.items[0].quality = 19;
   }
 }
 
