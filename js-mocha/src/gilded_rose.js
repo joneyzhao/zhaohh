@@ -23,6 +23,7 @@ class Shop {
       }
     }
   }
+
   updateAgedBrie(item) {
     if (item.quality < 50) {
       item.quality++;
@@ -31,10 +32,12 @@ class Shop {
     }
     item.sellIn--;
   }
+
   updateSulfuras(item) {
-    item.quality;
-    item.sellIn;
+    item.quality = item.quality;
+    item.sellIn = item.sellIn;
   }
+
   updateBackstagePasses(item) {
     if (item.sellIn > 10) {
       item.quality++;
@@ -47,6 +50,7 @@ class Shop {
     }
     item.sellIn--;
   }
+  
   updateNormal(item) {
     if (item.sellIn >= 0) {
       if (item.quality >= 1) {
