@@ -4,6 +4,7 @@ class Contest {
   }
 }
 
+
 module.exports = {
   Contest
 }
