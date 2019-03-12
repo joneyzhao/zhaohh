@@ -1,5 +1,5 @@
 var {expect} = require('chai');
-var {Shop, Item} = require('../src/gilded_rose.js');
+var { Shop, Item, AgedBrie} = require('../src/gilded_rose.js');
 
 describe("Gilded Rose", function() {
 
@@ -26,7 +26,8 @@ describe("Gilded Rose", function() {
   });
 
   it("shows Aged Brie test", function () {
-    const items = [new Item('Aged Brie', 10, 20), new Item('Aged Brie', 10, 50)]
+    // const items = [new Item('Aged Brie', 10, 20), new Item('Aged Brie', 10, 50)]
+    const items = [new AgedBrie('Aged Brie', 10, 20), new AgedBrie('Aged Brie', 10, 50)]
     const shop = new Shop(items)
 
     shop.updateQuality()

@@ -6,21 +6,37 @@ class Item {
   }
 }
 
+class AgedBrie extends Item {
+  constructor(name, sellIn, quality) {
+    super(name, sellIn, quality);
+  }
+
+  update() {
+    if (this.quality < 50) {
+      this.quality++;
+    } else {
+      this.quality = 50;
+    }
+    this.sellIn--;
+  }
+}
+
 class Shop {
   constructor(items) {
     this.items = items;
   }
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
-      if (this.items[i].name == 'Aged Brie') {
-        this.updateAgedBrie(this.items[i]);
-      } else if (this.items[i].name == 'Sulfuras') {
-        this.updateSulfuras(this.items[i]);
-      } else if (this.items[i].name == 'Backstage passes') {
-        this.updateBackstagePasses(this.items[i]);
-      } else {
-        this.updateNormal(this.items[i]);
-      }
+      // if (this.items[i].name == 'Aged Brie') {
+      //   this.updateAgedBrie(this.items[i]);
+      // } else if (this.items[i].name == 'Sulfuras') {
+      //   this.updateSulfuras(this.items[i]);
+      // } else if (this.items[i].name == 'Backstage passes') {
+      //   this.updateBackstagePasses(this.items[i]);
+      // } else {
+      //   this.updateNormal(this.items[i]);
+      // }
+      this.items[i].update();
     }
   }
 
@@ -68,5 +84,6 @@ class Shop {
 
 module.exports = {
   Item,
-  Shop
+  Shop,
+  AgedBrie
 }
