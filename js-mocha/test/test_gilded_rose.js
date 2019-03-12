@@ -1,10 +1,10 @@
 var {expect} = require('chai');
-var { Shop, Item, AgedBrie} = require('../src/gilded_rose.js');
+var { Shop, Item, AgedBrie, Sulfuras, BackstagePasses, Normal} = require('../src/gilded_rose.js');
 
 describe("Gilded Rose", function() {
 
   it("shows normal test", function() {
-    const items = [new Item('normal', 10, 20), new Item('normal', 0, 0), new Item('normal', -1, 2), new Item('normal', 1, 1), new Item('normal', -1, 0)]
+    const items = [new Normal('normal', 10, 20), new Normal('normal', 0, 0), new Normal('normal', -1, 2), new Normal('normal', 1, 1), new Normal('normal', -1, 0)]
     const shop = new Shop(items)
 
     shop.updateQuality()
@@ -40,7 +40,7 @@ describe("Gilded Rose", function() {
   });
 
   it("shows Sulfuras test", function () {
-    const items = [new Item('Sulfuras', 10, 80)]
+    const items = [new Sulfuras('Sulfuras', 10, 80)]
     const shop = new Shop(items)
 
     shop.updateQuality()
@@ -50,7 +50,7 @@ describe("Gilded Rose", function() {
   });
 
   it("shows Backstage passes test", function () {
-    const items = [new Item('Backstage passes', 10, 20), new Item('Backstage passes', 12, 20), new Item('Backstage passes', 4, 20), new Item('Backstage passes', 0, 20)]
+    const items = [new BackstagePasses('Backstage passes', 10, 20), new BackstagePasses('Backstage passes', 12, 20), new BackstagePasses('Backstage passes', 4, 20), new BackstagePasses('Backstage passes', 0, 20)]
     const shop = new Shop(items)
 
     shop.updateQuality()
